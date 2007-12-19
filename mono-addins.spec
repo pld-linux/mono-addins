@@ -4,7 +4,7 @@ Summary:	Mono.Addins - framework for creating extensible applications and librar
 Summary(pl.UTF-8):	Mono.Addins - framework do tworzenia elastycznych aplikacji i bibliotek
 Name:		mono-addins
 Version:	0.3
-Release:	0.5
+Release:	0.6
 License:	GPL/MIT
 Group:		Development/Tools
 #Source0Download: http://go-mono.com/sources-stable/
@@ -13,14 +13,13 @@ Source0:	http://go-mono.com/sources/mono-addins/%{name}-%{version}.tar.bz2
 URL:		http://www.mono-project.com/Mono.Addins
 BuildRequires:	autoconf
 BuildRequires:	automake >= 1:1.7
+BuildRequires:	dotnet-gtk-sharp2-devel >= 2.9.0
 BuildRequires:	gettext-devel
 BuildRequires:	intltool
 BuildRequires:	libtool
 BuildRequires:	mono-csharp >= 1.1.13
-BuildRequires:  dotnet-gtk-sharp2-devel >= 2.9.0
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.311
-%{?with_asp:BuildRequires:	xsp}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -29,6 +28,13 @@ range of applications: from simple applications with small
 extensibility needs, to complex applications which need support for
 large add-in structures. This new framework intends to set an standard
 for building extensible applications and add-ins in Mono.
+
+%description -l pl.UTF-8
+Mono.Addins zostało zaprojektowane jako proste i użyteczne narzędzie
+dla różnych aplikacji: od prostych, z niewielkimi potrzebami
+rozszerzalności, po złożone, wymagające wsparcia dla dużych struktur
+dodatków. Ten nowy framework w zamiarach ma wyznaczać standard
+przy budowaniu elastycznych aplikacji i dodatków w Mono.
 
 %package devel
 Summary:	Mono.Addins development files
