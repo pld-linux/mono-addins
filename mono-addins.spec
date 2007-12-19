@@ -9,7 +9,7 @@ License:	GPL/MIT
 Group:		Development/Tools
 #Source0Download: http://go-mono.com/sources-stable/
 Source0:	http://go-mono.com/sources/mono-addins/%{name}-%{version}.tar.bz2
-# Source0-md5:	4bc524df81dca65bca05271e89a96b90
+# Source0-md5:	d8af0d5c6dabce1aa58efbfd268b6639
 URL:		http://www.mono-project.com/Mono.Addins
 BuildRequires:	autoconf
 BuildRequires:	automake >= 1:1.7
