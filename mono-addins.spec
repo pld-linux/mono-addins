@@ -1,4 +1,3 @@
-
 %include	/usr/lib/rpm/macros.mono
 Summary:	Mono.Addins - framework for creating extensible applications and libraries
 Summary(pl.UTF-8):	Mono.Addins - framework do tworzenia elastycznych aplikacji i bibliotek
@@ -74,7 +73,8 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
 %attr(755,root,root) %{_bindir}/mautil
-%{_prefix}/lib/mono/mono-addins
+%dir %{_prefix}/lib/mono/mono-addins
+%{_prefix}/lib/mono/mono-addins/mautil.exe
 %{_prefix}/lib/mono/gac/Mono.Addins
 %{_prefix}/lib/mono/gac/Mono.Addins.Gui
 %{_prefix}/lib/mono/gac/Mono.Addins.Setup
@@ -84,11 +84,9 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
-%{_prefix}/lib/mono/mono-addins
-%{_prefix}/lib/mono/gac/Mono.Addins
-%{_prefix}/lib/mono/gac/Mono.Addins.Gui
-%{_prefix}/lib/mono/gac/Mono.Addins.Setup
-%{_prefix}/lib/mono/gac/policy.0.2.Mono.Addins
-%{_prefix}/lib/mono/gac/policy.0.2.Mono.Addins.Gui
-%{_prefix}/lib/mono/gac/policy.0.2.Mono.Addins.Setup
-%{_pkgconfigdir}/*
+%{_prefix}/lib/mono/mono-addins/Mono.Addins.dll
+%{_prefix}/lib/mono/mono-addins/Mono.Addins.Gui.dll
+%{_prefix}/lib/mono/mono-addins/Mono.Addins.Setup.dll
+%{_pkgconfigdir}/mono-addins.pc
+%{_pkgconfigdir}/mono-addins-gui.pc
+%{_pkgconfigdir}/mono-addins-setup.pc
