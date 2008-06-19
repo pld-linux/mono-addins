@@ -6,8 +6,8 @@ Version:	0.3.1
 Release:	2
 License:	GPL/MIT
 Group:		Development/Tools
-#Source0Download: http://go-mono.com/sources-stable/
-Source0:	http://go-mono.com/sources/mono-addins/%{name}-%{version}.tar.bz2
+# latest downloads summary at http://ftp.novell.com/pub/mono/sources-stable/
+Source0:	http://ftp.novell.com/pub/mono/sources/mono-addins/%{name}-%{version}.tar.bz2
 # Source0-md5:	bae5e01ba61bd261de2335ab0dfe999f
 Patch0:		%{name}-pkglibdir.patch
 URL:		http://www.mono-project.com/Mono.Addins
