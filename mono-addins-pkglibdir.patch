@@ -1,28 +1,28 @@
---- mono-addins-0.3.1/Mono.Addins/mono-addins.pc.in	2008-01-30 23:37:53.000000000 +0100
-+++ mono-addins-0.3.1.new/Mono.Addins/mono-addins.pc.in	2008-05-20 17:30:55.015878129 +0200
+--- mono-addins-0.5/Mono.Addins/mono-addins.pc.in.orig	2010-05-21 22:03:41.000000000 +0200
++++ mono-addins-0.5/Mono.Addins/mono-addins.pc.in	2010-09-26 19:29:02.052559815 +0200
 @@ -1,6 +1,6 @@
  prefix=@prefix@
- exec_prefix=${prefix}
+ exec_prefix=@exec_prefix@
 -pkglibdir=@libdir@/mono/@PACKAGE@
 +pkglibdir=${prefix}/lib/mono/@PACKAGE@
  Libraries=  ${pkglibdir}/@MONO_ADDINS_DEFAULT_LIB@
  
  Name: Mono.Addins
---- mono-addins-0.3.1/Mono.Addins.Gui/mono-addins-gui.pc.in	2008-01-30 23:37:49.000000000 +0100
-+++ mono-addins-0.3.1.new/Mono.Addins.Gui/mono-addins-gui.pc.in	2008-05-20 17:31:15.456855325 +0200
+--- mono-addins-0.5/Mono.Addins.Gui/mono-addins-gui.pc.in.orig	2010-05-21 22:03:41.000000000 +0200
++++ mono-addins-0.5/Mono.Addins.Gui/mono-addins-gui.pc.in	2010-09-26 19:29:26.640556463 +0200
 @@ -1,6 +1,6 @@
  prefix=@prefix@
- exec_prefix=${prefix}
+ exec_prefix=@exec_prefix@
 -pkglibdir=@libdir@/mono/@PACKAGE@
 +pkglibdir=${prefix}/lib/mono/@PACKAGE@
  Libraries=  ${pkglibdir}/@MONO_ADDINS_GUI_DEFAULT_LIB@
  
  Name: Mono.Addins.Gui
---- mono-addins-0.3.1/Mono.Addins.Setup/mono-addins-setup.pc.in	2008-01-30 23:37:51.000000000 +0100
-+++ mono-addins-0.3.1.new/Mono.Addins.Setup/mono-addins-setup.pc.in	2008-05-20 17:31:27.447428541 +0200
+--- mono-addins-0.5/Mono.Addins.Setup/mono-addins-setup.pc.in.orig	2010-05-21 22:03:41.000000000 +0200
++++ mono-addins-0.5/Mono.Addins.Setup/mono-addins-setup.pc.in	2010-09-26 19:29:41.544556463 +0200
 @@ -1,6 +1,6 @@
  prefix=@prefix@
- exec_prefix=${prefix}
+ exec_prefix=@exec_prefix@
 -pkglibdir=@libdir@/mono/@PACKAGE@
 +pkglibdir=${prefix}/lib/mono/@PACKAGE@
  Libraries=  ${pkglibdir}/@MONO_ADDINS_SETUP_DEFAULT_LIB@
