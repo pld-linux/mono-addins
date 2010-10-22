@@ -3,13 +3,14 @@ Summary:	Mono.Addins - framework for creating extensible applications and librar
 Summary(pl.UTF-8):	Mono.Addins - framework do tworzenia elastycznych aplikacji i bibliotek
 Name:		mono-addins
 Version:	0.5
-Release:	1
+Release:	2
 License:	MIT
 Group:		Development/Tools
 # latest downloads summary at http://ftp.novell.com/pub/mono/sources-stable/
 Source0:	http://ftp.novell.com/pub/mono/sources/mono-addins/%{name}-%{version}.tar.bz2
 # Source0-md5:	22c8dd470caed090b3c77c9423e5b3c6
 Patch0:		%{name}-pkglibdir.patch
+Patch1:		%{name}-monodir.patch
 URL:		http://www.mono-project.com/Mono.Addins
 BuildRequires:	autoconf >= 2.54
 BuildRequires:	automake >= 1:1.7
@@ -48,6 +49,7 @@ Pliki programistyczne Mono.Addins.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
 %build
 %{__aclocal}
