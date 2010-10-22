@@ -1,0 +1,38 @@
+diff -urN mono-addins-0.5/configure.ac mono-addins-0.5.new//configure.ac
+--- mono-addins-0.5/configure.ac	2010-05-21 22:03:41.000000000 +0200
++++ mono-addins-0.5.new//configure.ac	2010-10-23 00:33:09.375161896 +0200
+@@ -33,8 +33,8 @@
+ 	AC_MSG_ERROR([No al tool found. You need to install either the mono or .Net SDK.])
+ fi
+ 
+-GACUTIL_FLAGS='/package mono-addins /root $(DESTDIR)$(libdir)'
+-GACUTIL_POLICY_FLAGS='/root $(DESTDIR)$(libdir)'
++GACUTIL_FLAGS='/package mono-addins /root $(DESTDIR)$(prefix)/lib'
++GACUTIL_POLICY_FLAGS='/root $(DESTDIR)$(prefix)/lib'
+ 
+ AC_SUBST(GACUTIL)
+ AC_SUBST(GACUTIL_FLAGS)
+diff -urN mono-addins-0.5/mautil/Makefile.am mono-addins-0.5.new//mautil/Makefile.am
+--- mono-addins-0.5/mautil/Makefile.am	2010-05-21 22:03:41.000000000 +0200
++++ mono-addins-0.5.new//mautil/Makefile.am	2010-10-23 00:35:30.935991969 +0200
+@@ -36,7 +36,7 @@
+ 
+ include $(top_srcdir)/Makefile.include
+ 
+-pkglibdir = $(libdir)/mono/mono-addins
++pkglibdir = $(prefix)/lib/mono/mono-addins
+ pkglib_SCRIPTS = $(ASSEMBLY) $(build_datafiles)
+ 
+ man_MANS = mautil.1
+diff -urN mono-addins-0.5/Mono.Addins.MSBuild/Makefile.am mono-addins-0.5.new//Mono.Addins.MSBuild/Makefile.am
+--- mono-addins-0.5/Mono.Addins.MSBuild/Makefile.am	2010-05-25 18:11:20.000000000 +0200
++++ mono-addins-0.5.new//Mono.Addins.MSBuild/Makefile.am	2010-10-23 00:37:09.653851183 +0200
+@@ -39,7 +39,7 @@
+ 	mkdir -p $(dir $(ASSEMBLY))		
+ 	$(ASSEMBLY_COMPILER_COMMAND) $(ASSEMBLY_COMPILER_FLAGS) -out:$@ -target:$(COMPILE_TARGET) $(build_sources) $(build_resources_embed) $(build_references_ref)
+ 
+-xbuilddir = $(libdir)/mono/xbuild
++xbuilddir = $(prefix)/lib/mono/xbuild
+ xbuild_DATA = Mono.Addins.targets
+ 
+ install-data-local: gac-install
