@@ -2,15 +2,14 @@
 Summary:	Mono.Addins - framework for creating extensible applications and libraries
 Summary(pl.UTF-8):	Mono.Addins - framework do tworzenia elastycznych aplikacji i bibliotek
 Name:		mono-addins
-Version:	0.5
-Release:	2
+Version:	0.6
+Release:	1
 License:	MIT
 Group:		Development/Tools
 # latest downloads summary at http://ftp.novell.com/pub/mono/sources-stable/
 Source0:	http://ftp.novell.com/pub/mono/sources/mono-addins/%{name}-%{version}.tar.bz2
-# Source0-md5:	22c8dd470caed090b3c77c9423e5b3c6
-Patch0:		%{name}-pkglibdir.patch
-Patch1:		%{name}-monodir.patch
+# Source0-md5:	d6a1fd2b233c3f1c69b6dd32f8f0e7a4
+Patch0:		%{name}-monodir.patch
 URL:		http://www.mono-project.com/Mono.Addins
 BuildRequires:	autoconf >= 2.54
 BuildRequires:	automake >= 1:1.7
@@ -49,7 +48,6 @@ Pliki programistyczne Mono.Addins.
 %prep
 %setup -q
 %patch0 -p1
-%patch1 -p1
 
 %build
 %{__aclocal}
@@ -93,6 +91,11 @@ rm -rf $RPM_BUILD_ROOT
 %{_prefix}/lib/mono/gac/policy.0.4.Mono.Addins.Gui
 %{_prefix}/lib/mono/gac/policy.0.4.Mono.Addins.MSBuild
 %{_prefix}/lib/mono/gac/policy.0.4.Mono.Addins.Setup
+%{_prefix}/lib/mono/gac/policy.0.5.Mono.Addins
+%{_prefix}/lib/mono/gac/policy.0.5.Mono.Addins.CecilReflector
+%{_prefix}/lib/mono/gac/policy.0.5.Mono.Addins.Gui
+%{_prefix}/lib/mono/gac/policy.0.5.Mono.Addins.MSBuild
+%{_prefix}/lib/mono/gac/policy.0.5.Mono.Addins.Setup
 %{_mandir}/man1/mautil.1*
 
 %files devel
