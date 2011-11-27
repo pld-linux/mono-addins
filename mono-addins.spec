@@ -2,19 +2,21 @@
 Summary:	Mono.Addins - framework for creating extensible applications and libraries
 Summary(pl.UTF-8):	Mono.Addins - framework do tworzenia elastycznych aplikacji i bibliotek
 Name:		mono-addins
-Version:	0.6.1
+Version:	0.6.2
 Release:	1
 License:	MIT
 Group:		Development/Tools
-# latest downloads summary at http://ftp.novell.com/pub/mono/sources-stable/
-Source0:	http://ftp.novell.com/pub/mono/sources/mono-addins/%{name}-%{version}.tar.bz2
-# Source0-md5:	3694b8845690e8959ffa1254be7f3c7a
+# latest downloads summary at http://download.mono-project.com/sources-stable/
+Source0:	http://download.mono-project.com/sources/mono-addins/%{name}-%{version}.tar.bz2
+# Source0-md5:	afbbe5e9fdf9b03911bc8e6b94feb60b
 Patch0:		%{name}-monodir.patch
 URL:		http://www.mono-project.com/Mono.Addins
 BuildRequires:	autoconf >= 2.54
 BuildRequires:	automake >= 1:1.7
 BuildRequires:	dotnet-gtk-sharp2-devel >= 2.9.0
 BuildRequires:	mono-csharp >= 1.1.13
+# for --enable-docs, which fails
+#BuildRequires:	mono-monodoc
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.311
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -67,7 +69,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog NEWS README
+%doc AUTHORS COPYING ChangeLog NEWS README
 %attr(755,root,root) %{_bindir}/mautil
 %dir %{_prefix}/lib/mono/mono-addins
 %{_prefix}/lib/mono/mono-addins/mautil.exe
