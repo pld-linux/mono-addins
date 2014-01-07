@@ -1,23 +1,32 @@
+#
+# Conditional build:
+%bcond_without	monodoc	# monodoc documentation
+%bcond_with	tests	# "make test" call [fails on UnitTests load???]
+#
 %include	/usr/lib/rpm/macros.mono
 Summary:	Mono.Addins - framework for creating extensible applications and libraries
 Summary(pl.UTF-8):	Mono.Addins - framework do tworzenia elastycznych aplikacji i bibliotek
 Name:		mono-addins
-Version:	0.6.2
-Release:	2
+Version:	1.0
+Release:	1
 License:	MIT
 Group:		Development/Tools
-# latest downloads summary at http://download.mono-project.com/sources-stable/
-Source0:	http://download.mono-project.com/sources/mono-addins/%{name}-%{version}.tar.bz2
-# Source0-md5:	afbbe5e9fdf9b03911bc8e6b94feb60b
+# latest is 0.6.2 here
+#Source0:	http://download.mono-project.com/sources/mono-addins/%{name}-%{version}.tar.bz2
+# newer releases available on http://monoaddins.codeplex.com/ (requiring JS and POST forms) or github
+Source0:	https://github.com/mono/mono-addins/archive/mono-addins-1.0.tar.gz
+# Source0-md5:	d4c87fbfd46584a0f1fb56169e78f6d7
 Patch0:		%{name}-monodir.patch
-Patch1:		%{name}-automake.patch
+Patch1:		%{name}-build.patch
+Patch2:		%{name}-destdir.patch
 URL:		http://www.mono-project.com/Mono.Addins
 BuildRequires:	autoconf >= 2.54
 BuildRequires:	automake >= 1:1.7
 BuildRequires:	dotnet-gtk-sharp2-devel >= 2.9.0
 BuildRequires:	mono-csharp >= 1.1.13
-# for --enable-docs, which fails
-#BuildRequires:	mono-monodoc
+# mono-nunit
+%{?with_tests:BuildRequires:	mono-devel}
+%{?with_monodoc:BuildRequires:	mono-monodoc}
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.311
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -49,16 +58,22 @@ Mono.Addins development files.
 Pliki programistyczne Mono.Addins.
 
 %prep
-%setup -q
+%setup -q -n %{name}-%{name}-%{version}
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
 %build
 %{__aclocal}
 %{__automake}
 %{__autoconf}
-%configure
+%configure \
+	%{?with_monodoc:--enable-docs} \
+	%{?with_tests:--enable-tests}
+
 %{__make} -j1
+
+%{?with_tests:%{__make} -C Test test}
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -100,6 +115,11 @@ rm -rf $RPM_BUILD_ROOT
 %{_prefix}/lib/mono/gac/policy.0.5.Mono.Addins.Gui
 %{_prefix}/lib/mono/gac/policy.0.5.Mono.Addins.MSBuild
 %{_prefix}/lib/mono/gac/policy.0.5.Mono.Addins.Setup
+%{_prefix}/lib/mono/gac/policy.0.6.Mono.Addins
+%{_prefix}/lib/mono/gac/policy.0.6.Mono.Addins.CecilReflector
+%{_prefix}/lib/mono/gac/policy.0.6.Mono.Addins.Gui
+%{_prefix}/lib/mono/gac/policy.0.6.Mono.Addins.MSBuild
+%{_prefix}/lib/mono/gac/policy.0.6.Mono.Addins.Setup
 %{_mandir}/man1/mautil.1*
 
 %files devel
@@ -109,7 +129,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_prefix}/lib/mono/mono-addins/Mono.Addins.Gui.dll
 %{_prefix}/lib/mono/mono-addins/Mono.Addins.MSBuild.dll
 %{_prefix}/lib/mono/mono-addins/Mono.Addins.Setup.dll
-%{_prefix}/lib/mono/xbuild/Mono.Addins.targets
+%if %{with monodoc}
+%{_prefix}/lib/monodoc/sources/mono-addins-docs.*
+%endif
 %{_pkgconfigdir}/mono-addins.pc
 %{_pkgconfigdir}/mono-addins-gui.pc
 %{_pkgconfigdir}/mono-addins-msbuild.pc

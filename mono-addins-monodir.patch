@@ -12,27 +12,26 @@ diff -urN mono-addins-0.5/configure.ac mono-addins-0.5.new//configure.ac
  
  AC_SUBST(GACUTIL)
  AC_SUBST(GACUTIL_FLAGS)
-diff -urN mono-addins-0.5/mautil/Makefile.am mono-addins-0.5.new//mautil/Makefile.am
---- mono-addins-0.5/mautil/Makefile.am	2010-05-21 22:03:41.000000000 +0200
-+++ mono-addins-0.5.new//mautil/Makefile.am	2010-10-23 00:35:30.935991969 +0200
-@@ -36,7 +36,7 @@
- 
+--- mono-addins-mono-addins-1.0/mautil/Makefile.am.orig	2012-10-16 13:30:05.000000000 +0200
++++ mono-addins-mono-addins-1.0/mautil/Makefile.am	2014-01-07 20:39:31.996739063 +0100
+@@ -8,7 +8,7 @@
  include $(top_srcdir)/Makefile.include
+ include $(top_srcdir)/xbuild.include
  
--pkglibdir = $(libdir)/mono/mono-addins
-+pkglibdir = $(prefix)/lib/mono/mono-addins
- pkglib_SCRIPTS = $(ASSEMBLY) $(build_datafiles)
+-programfilesdir = $(libdir)/mono/mono-addins
++programfilesdir = $(prefix)/lib/mono/mono-addins
+ programfiles_DATA = $(ASSEMBLY) $(build_datafiles)
  
  man_MANS = mautil.1
-diff -urN mono-addins-0.5/Mono.Addins.MSBuild/Makefile.am mono-addins-0.5.new//Mono.Addins.MSBuild/Makefile.am
---- mono-addins-0.5/Mono.Addins.MSBuild/Makefile.am	2010-05-25 18:11:20.000000000 +0200
-+++ mono-addins-0.5.new//Mono.Addins.MSBuild/Makefile.am	2010-10-23 00:37:09.653851183 +0200
-@@ -39,7 +39,7 @@
- 	mkdir -p $(dir $(ASSEMBLY))		
- 	$(ASSEMBLY_COMPILER_COMMAND) $(ASSEMBLY_COMPILER_FLAGS) -out:$@ -target:$(COMPILE_TARGET) $(build_sources) $(build_resources_embed) $(build_references_ref)
- 
--xbuilddir = $(libdir)/mono/xbuild
-+xbuilddir = $(prefix)/lib/mono/xbuild
- xbuild_DATA = Mono.Addins.targets
- 
- install-data-local: gac-install
+#diff -urN mono-addins-0.5/Mono.Addins.MSBuild/Makefile.am mono-addins-0.5.new//Mono.Addins.MSBuild/Makefile.am
+#--- mono-addins-0.5/Mono.Addins.MSBuild/Makefile.am	2010-05-25 18:11:20.000000000 +0200
+#+++ mono-addins-0.5.new//Mono.Addins.MSBuild/Makefile.am	2010-10-23 00:37:09.653851183 +0200
+#@@ -39,7 +39,7 @@
+# 	mkdir -p $(dir $(ASSEMBLY))		
+# 	$(ASSEMBLY_COMPILER_COMMAND) $(ASSEMBLY_COMPILER_FLAGS) -out:$@ -target:$(COMPILE_TARGET) $(build_sources) $(build_resources_embed) $(build_references_ref)
+# 
+#-xbuilddir = $(libdir)/mono/xbuild
+#+xbuilddir = $(prefix)/lib/mono/xbuild
+# xbuild_DATA = Mono.Addins.targets
+# 
+# install-data-local: gac-install
