@@ -1,0 +1,18 @@
+--- mono-addins-mono-addins-1.0/docs/Makefile.am.orig	2012-10-16 13:30:05.000000000 +0200
++++ mono-addins-mono-addins-1.0/docs/Makefile.am	2014-01-07 21:33:44.836602543 +0100
+@@ -24,12 +24,13 @@
+ install: install-docs
+ 
+ install-docs: mono-addins-docs.source $(DOC_ASSEMBLED_FILES)
+-	cp $^ `pkg-config monodoc --variable sourcesdir`
++	install -d $(DESTDIR)`pkg-config monodoc --variable sourcesdir`
++	cp $^ $(DESTDIR)`pkg-config monodoc --variable sourcesdir`
+ 
+ uninstall: uninstall-docs
+ 
+ uninstall-docs:
+-	-rm `pkg-config monodoc --variable sourcesdir`/mono-addins-docs{.source,.tree,.zip}
++	-rm $(DESTDIR)`pkg-config monodoc --variable sourcesdir`/mono-addins-docs{.source,.tree,.zip}
+ 
+ clean: clean-docs
+ 
