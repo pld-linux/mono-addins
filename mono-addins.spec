@@ -11,9 +11,9 @@ Version:	1.1
 Release:	1
 License:	MIT
 Group:		Development/Tools
-# latest is 0.6.2 here
+# main download site
 #Source0:	http://download.mono-project.com/sources/mono-addins/%{name}-%{version}.tar.bz2
-# newer releases available on http://monoaddins.codeplex.com/ (requiring JS and POST forms) or github
+# sometimes newer releases are available on http://monoaddins.codeplex.com/ (requiring JS and POST forms) or github:
 Source0:	https://github.com/mono/mono-addins/archive/%{name}-%{version}.tar.gz
 # Source0-md5:	bbacbb5243b00ea7e12b7fd9b4d0b6f5
 Patch0:		%{name}-monodir.patch
