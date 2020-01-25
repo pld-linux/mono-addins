@@ -5,7 +5,6 @@
 %bcond_without	monodoc	# monodoc documentation
 %bcond_with	tests	# "make test" call [fails on UnitTests load???]
 #
-%include	/usr/lib/rpm/macros.mono
 Summary:	Mono.Addins - framework for creating extensible applications and libraries
 Summary(pl.UTF-8):	Mono.Addins - framework do tworzenia elastycznych aplikacji i bibliotek
 Name:		mono-addins
