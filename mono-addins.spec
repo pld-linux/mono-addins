@@ -34,6 +34,9 @@ BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 2.015
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
+# no native code here
+%define		_enable_debug_packages	0
+
 %description
 Mono.Addins has been designed to be easy to use and useful for a wide
 range of applications: from simple applications with small
