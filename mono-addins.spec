@@ -9,27 +9,29 @@ Summary:	Mono.Addins - framework for creating extensible applications and librar
 Summary(pl.UTF-8):	Mono.Addins - framework do tworzenia elastycznych aplikacji i bibliotek
 Name:		mono-addins
 Version:	1.3.3
-Release:	2
+Release:	3
 License:	MIT
 Group:		Development/Tools
-# main download site
+# old download site
 #Source0:	http://download.mono-project.com/sources/mono-addins/%{name}-%{version}.tar.gz
-# sometimes newer releases are available on http://monoaddins.codeplex.com/ (requiring JS and POST forms) or github:
+# newer releases on github:
+#Source0Download: https://github.com/mono/mono-addins/tags
 Source0:	https://github.com/mono/mono-addins/archive/%{name}-%{version}.tar.gz
 # Source0-md5:	7ac27ffa4616fd03dc299749f16bce2a
 Patch0:		%{name}-monodir.patch
 Patch1:		%{name}-destdir.patch
-URL:		http://www.mono-project.com/Mono.Addins
+Patch2:		%{name}-gtk3.patch
+URL:		https://www.mono-project.com/Mono.Addins
 BuildRequires:	autoconf >= 2.54
 BuildRequires:	automake >= 1:1.7
 %{?with_gtk2:BuildRequires:	dotnet-gtk-sharp2-devel >= 2.9.0}
-%{?with_gtk3:BuildRequires:	dotnet-gtk-sharp3-devel >= 2.99}
+%{?with_gtk3:BuildRequires:	dotnet-gtk-sharp3-devel >= 3.22}
 BuildRequires:	mono-csharp >= 1.1.13
 # mono-nunit
 %{?with_tests:BuildRequires:	mono-devel}
 %{?with_monodoc:BuildRequires:	mono-monodoc}
 BuildRequires:	pkgconfig
-BuildRequires:	rpmbuild(macros) >= 1.311
+BuildRequires:	rpmbuild(macros) >= 2.015
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -112,6 +114,7 @@ Pliki programistyczne biblioteki Mono.Addins.Gui dla GTK# 3.
 %setup -q -n %{name}-%{name}-%{version}
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
 %build
 %{__aclocal}

@@ -1,0 +1,23 @@
+--- mono-addins-mono-addins-1.3.3/Mono.Addins.GuiGtk3/Mono.Addins.GuiGtk3.csproj.orig	2017-02-28 11:34:19.000000000 +0100
++++ mono-addins-mono-addins-1.3.3/Mono.Addins.GuiGtk3/Mono.Addins.GuiGtk3.csproj	2022-04-25 19:22:00.714335222 +0200
+@@ -43,7 +43,7 @@
+     <Reference Include="pango-sharp, Version=3.0.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
+     <Reference Include="atk-sharp, Version=3.0.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
+     <Reference Include="System.Core" />
+-    <Reference Include="cairo-sharp, Version=1.10.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756" />
++    <Reference Include="cairo-sharp, Version=1.12.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756" />
+     <Reference Include="Mono.Posix" />
+     <Reference Include="gio-sharp, Version=3.0.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
+   </ItemGroup>
+--- mono-addins-mono-addins-1.3.3/Mono.Addins.GuiGtk3/Mono.Addins.Gui/HoverImageButton.cs.orig	2017-02-28 11:34:19.000000000 +0100
++++ mono-addins-mono-addins-1.3.3/Mono.Addins.GuiGtk3/Mono.Addins.Gui/HoverImageButton.cs	2022-04-25 20:40:40.262100571 +0200
+@@ -154,8 +154,7 @@ namespace Mono.Addins.GuiGtk3
+ 			PropagateDraw (Child, cr);
+ 
+             if(HasFocus && draw_focus) {
+-                Style.PaintFocus(Style, cr, StateType.Normal, this, "button",
+-                    0, 0, Allocation.Width, Allocation.Height);
++                StyleContext.RenderFocus(cr, 0, 0, Allocation.Width, Allocation.Height);
+             }
+         }
+ 
